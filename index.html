@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WorkingWithFrames</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+
+	body{
+		margin:0;
+		padding:0;
+		background-color: #ddd;
+	}
+
+	.title{
+		text-align: center;
+		font-size:32px;
+		margin-top: 30px;
+	}
+
+	/* Navigation */
+
+	.navigation{
+		width: 100%;
+		background:grey;
+		color: #ddaa61;
+		position: absolute;
+		top:140px;
+		border-bottom: 3px solid #ddaa61;
+		height: 60px;
+	}
+
+	.navigation ul li{
+		display: inline;
+		text-decoration: none;
+		cursor: pointer;
+		padding-right: 15px;
+		font-size: 24px;
+	}
+
+	ul li{
+		text-decoration: none;
+	}
+
+	.navigation ul li:hover{
+		color: white;
+	}
+
+	.sideopen{
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		display: inline;
+		display: none;
+		opacity: 0;
+		transition: 1s ease-in-out;
+	}
+
+	.navigation ul{
+		margin-left: -24px;
+	}
+
+	/* The Name */
+
+
+	.sitename{
+		display: inline-block;
+		right: 15px;
+		font-size: 29px;
+		position: absolute;
+		top: 13px;
+		cursor: pointer;
+	}
+
+	/* Actual SideBar */
+
+	.sidebar{
+		height: 90%;
+		background-color: #ddaa61;
+		opacity: 0.6;
+		width: 300px;
+		position: absolute;
+		top: 140px;
+		left: -300px;
+		transition: 1s ease-in-out;
+		
+	}
+
+	.sidebar ul li{
+		color: #8D6D44;
+		cursor: pointer;
+		padding: 15px;
+		font-size: 24px;
+		list-style-type: none;
+	}
+
+	.sidebar ul li:hover{
+		color: white;
+	}
+
+	.sidebar ul{
+		margin-top: 74px;
+	}
+
+	/* Changes when screen resolution is under 600px */
+
+	@media only screen and (max-width: 800px){
+		.sideopen{
+			display: initial;
+			opacity: 1;
+			animation: 1s ease;
+		}
+
+		.navigation ul li{
+			display: none;
+			opacity: 0;
+		}
+	}
+
+	</style>
+</head>
+<body>
+
+
+<!--  Title Section  -->
+
+<div class="title">
+	Website Sidebar Navigation
+</div>
+
+<hr style="width: 60%;height:3px;color:#d89f49;background-color: #d89f49;border:0;border-radius: 50px;">
+<br>
+<strong style="font-size: 19px;margin-left: 10px;">
+   Resize the browser to enable the sidebar !
+</strong>
+
+<br>
+
+
+<!--  Navigation  -->	
+
+<div class="navigation">
+
+	
+	<!--  Slide open on small display  -->
+
+
+	<div class="sideopen" id="sideopen">
+	<a href="#" onclick="openSlideMenu()">
+			<svg width="25" height="25" class="slide">
+				<path d="M0,5 30,5" stroke="#ffffff" stroke-width="4"/>
+				<path class="line2" d="M0,14 30,14" stroke="#ddaa61" stroke-width="4"/>
+				<path class="line3" d="M0,23 30,23" stroke="#ffffff" stroke-width="4"/>
+			</svg>
+		</a>
+	</div>
+
+
+	<!--  Menu on bigger display  -->
+
+
+	<ul>
+
+		<li>Home</li>
+		<li>Portofolio</li>
+		<li>About</li>
+		<li>Contact</li>
+
+	</ul>
+
+	<div class="sitename">Site<span style="color: white;">Name</span></div>
+
+</div>
+
+	<!--  Actual SideBar  -->
+
+<div class="sidebar" id="sidebar">
+
+<div class="close" onclick="closeSlideMenu()" style="float:right;font-size:22px;margin-top: 7px; color: white;margin-right: 10px;">x</div>
+
+	<ul>
+
+		<li>Home</li>
+		<li>Portofolio</li>
+		<li>About</li>
+		<li>Contact</li>
+
+	</ul>
+</div>
+
+	
+	<!--  SideBar Script  -->
+
+<script type="text/javascript">
+
+	var alternate = 1;
+
+	
+
+	
+	
+	function openSlideMenu(){
+		document.getElementById("sidebar").style.left="0px";
+
+
+	}
+
+	function closeSlideMenu(){
+		document.getElementById("sidebar").style.left="-300px";
+
+
+	}
+
+
+
+</script>
+
+
+</body>
+</html>
